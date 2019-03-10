@@ -1,0 +1,13 @@
+{
+  "_id": 1,
+  "name": "Charley",
+  "active": true,
+  "signature": "",
+  "organization_id": 121,
+  "tags": [
+    "Springville",
+    "Sutton",
+    "Hartsville/Hartley"
+  ],
+  "role": "admin"
+}
