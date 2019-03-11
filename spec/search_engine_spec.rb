@@ -27,7 +27,7 @@ RSpec.describe SearchEngine do
 
     it 'returns matched data' do
       search_result =
-        search_engine.search(search_key: "name", search_value: "Francisca Rasmussen")
+        search_engine.search(search_field: "name", search_value: "Francisca Rasmussen")
 
       expect(search_result).to eq(result_data_1)
     end
@@ -40,7 +40,7 @@ RSpec.describe SearchEngine do
 
     it 'returns empty data' do
       search_result =
-        search_engine.search(search_key: "name", search_value: "Franc")
+        search_engine.search(search_field: "name", search_value: "Franc")
 
       expect(search_result).to eq([])
     end
@@ -53,7 +53,7 @@ RSpec.describe SearchEngine do
 
     it 'returns matched data' do
       search_result =
-        search_engine.search(search_key: "signature", search_value: "")
+        search_engine.search(search_field: "signature", search_value: "")
 
       expect(search_result).to eq(result_data_1)
     end
@@ -66,7 +66,7 @@ RSpec.describe SearchEngine do
 
     it 'returns matched data' do
       search_result =
-        search_engine.search(search_key: "tags", search_value: "Springville")
+        search_engine.search(search_field: "tags", search_value: "Springville")
 
       expect(search_result).to eq(result_data_1)
     end
@@ -79,7 +79,7 @@ RSpec.describe SearchEngine do
 
     it 'returns matched data with boolean value' do
       search_result =
-        search_engine.search(search_key: "active", search_value: "true")
+        search_engine.search(search_field: "active", search_value: "true")
 
         expect(search_result).to eq(result_data_1)
     end
@@ -92,7 +92,7 @@ RSpec.describe SearchEngine do
 
     it 'returns matched data with integer value' do
       search_result =
-        search_engine.search(search_key: "_id", search_value: "1")
+        search_engine.search(search_field: "_id", search_value: "1")
 
         expect(search_result).to eq(result_data_1)
     end

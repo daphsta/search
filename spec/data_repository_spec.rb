@@ -85,12 +85,12 @@ RSpec.describe DataRepository do
     end
   end
 
-  describe '#list_all_keys' do
+  describe '#list_all_fields' do
     context 'when provided data is valid' do
       let(:repo) { DataRepository.new(source: valid_file, source_name: valid_filename) }
 
       it 'returns a list of all unique keys' do
-        expect(repo.list_all_keys).to eq(
+        expect(repo.list_all_fields).to eq(
           [
             "_id", "active", "name", "organization_id", "role", "signature", "tags"
           ]

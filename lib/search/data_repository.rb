@@ -14,9 +14,9 @@ class DataRepository
     data.values.flatten
   end
 
-  def list_all_keys
-    data[source_name].reduce(Set.new) do |all_keys, data|
-      all_keys.merge(data.keys)
+  def list_all_fields
+    data[source_name].reduce(Set.new) do |all_fields, data|
+      all_fields.merge(data.keys)
     end.map(&:to_s).sort
   end
 

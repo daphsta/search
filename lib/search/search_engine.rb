@@ -5,13 +5,13 @@ class SearchEngine
     @repository = repository
   end
 
-  def search(search_key:, search_value:)
+  def search(search_field:, search_value:)
     converted_search_value = [ SearchValueTypes::Converter.call(search_value) ]
 
     repository.fetch_all.select do |hash_data|
-      next unless hash_data.has_key?(search_key)
+      next unless hash_data.has_key?(search_field)
 
-      matched_value = hash_data[search_key]
+      matched_value = hash_data[search_field]
 
       find_value_in_nested(matched_value, converted_search_value)
     end
