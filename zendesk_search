@@ -1,0 +1,5 @@
+require_relative 'lib/search'
+
+zendesk_search = ZendeskSearch.new
+
+zendesk_search.load_prompts
