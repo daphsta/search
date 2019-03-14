@@ -23,7 +23,7 @@ class DataRepository
   private
 
   def load
-    json_data = JSON.parse(source)
+    json_data = JSON.load(source)
     data[source_name] = to_array(json_data)
   end
 

@@ -15,7 +15,7 @@ RSpec.describe Commands::LoadAllFields do
       let(:repo) { double('repo', list_all_fields: ['id', 'name']) }
 
       it 'renders a menu of all fields' do
-        allow(File).to receive(:read).and_return('user')
+        allow(File).to receive(:open).and_yield('user')
         allow(DataRepository).to receive(:new).and_return(repo)
 
         command = Commands::LoadAllFields.new(prompter: prompter, filename: filename)
@@ -57,13 +57,13 @@ RSpec.describe Commands::LoadAllFields do
       let(:repo) { double('repo', list_all_fields: ['id', 'name']) }
 
       it 'instantiates the data repository' do
-        allow(File).to receive(:read).and_return('user')
+        allow(File).to receive(:open).and_yield('user')
         allow(DataRepository).to receive(:new).and_return(repo)
 
         command = Commands::LoadAllFields.new(prompter: prompter, filename: filename)
 
         command.call
-        
+
         expect(DataRepository)
           .to have_received(:new)
           .with(source: 'user', source_name: filename)

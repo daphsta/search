@@ -10,10 +10,11 @@ module Commands
     end
 
     def call
-      file = File.read(selected_filepath)
-      @data_repository = DataRepository.new(source: file, source_name: filename)
+      File.open(selected_filepath) do |file|
+        @data_repository = DataRepository.new(source: file, source_name: filename)
 
-      render_fields_menu(data_repository.list_all_fields)
+        render_fields_menu(data_repository.list_all_fields)
+      end
 
     rescue UnknownFile => e
       prompter.warn e.message
