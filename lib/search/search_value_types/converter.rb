@@ -1,14 +1,13 @@
 module SearchValueTypes
   class Converter
     TYPE_FINDER = [
-      BooleanConverter.new,
-      IntegerConverter.new,
-      StringConverter.new
+      Boolean,
+      Integer
     ].freeze
 
     attr_reader :search_value
 
-    def self.call(search_value)
+    def self.call(search_value:)
       new(search_value).call
     end
 
@@ -17,13 +16,14 @@ module SearchValueTypes
     end
 
     def call
-      converted_value = []
-
-      TYPE_FINDER.each do |converter_class|
-        converted_value << converter_class.convert(search_value)
+      instantiated_finder_classes = TYPE_FINDER.map { |t| t.new(search_value) }
+      converter_class = instantiated_finder_classes.detect do |t|
+        t.match?
       end
 
-      converted_value.compact.first
+      return search_value.to_s if converter_class.nil?
+
+      converter_class.convert
     end
   end
 end
