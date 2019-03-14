@@ -5,6 +5,10 @@ require_relative 'search/search_value_types/boolean_converter'
 require_relative 'search/search_value_types/integer_converter'
 require_relative 'search/search_value_types/string_converter'
 require_relative 'search/search_value_types/converter'
+require_relative 'search/commands/get_search_value'
+require_relative 'search/commands/list_filenames'
+require_relative 'search/commands/load_all_fields'
+require_relative 'search/commands/search'
 
 module Search
   DATA_DIR = File.join(File.dirname(File.expand_path('.', __dir__)), 'data', '*')
