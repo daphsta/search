@@ -97,4 +97,16 @@ RSpec.describe SearchEngine do
         expect(search_result).to eq(result_data_1)
     end
   end
+
+  context 'when search field is invalid' do
+    let(:data_repository) do
+      DataRepository.new(source: json_data, source_name: filename)
+    end
+
+    it 'raises InvalidSearchField error' do
+      expect {
+        search_engine.search(search_field: "invalid_field", search_value: "1")
+      }.to raise_error(SearchEngine::InvalidSearchField)
+    end
+  end
 end
