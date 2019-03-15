@@ -29,9 +29,19 @@ To run the application
 
 More searchable `json` files can be added in the `data` folder
 
-The application displays a selection of files to search from.
-Then, the user is prompted to select from a list of fields to search.
-The final prompt will get a search value from the user.
+The application displays a main menu to select a file to search from
+
+![alt text](screenshots/search_main_menu.png "Search main menu")
+
+User is then able to select from a list of valid fields to search
+
+![alt text](screenshots/search_select_field.png "Search select field")
+
+User is then prompted to enter a search value. If value matches search term, the data is returned.
+If there are no results, an info for no results is displayed.
+
+![alt text](screenshots/search_result_found.png "Search result found")
+
 
 ## Design
 
