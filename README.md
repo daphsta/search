@@ -61,6 +61,7 @@ I have defined the following classes with specific namespaces:
 
 * `SearchValueTypes` module - responsible for determining data types from the user input which is a `string`.
                               The `converter` is a factory that determines the class to convert the search value to.
+                              Example: A "true" search term is converted to a `TrueClass` to be matched with the search data.
 
 ## Limitations
 
